@@ -31,16 +31,12 @@ class ArticleCrudController extends AbstractCrudController
             IdField::new('id')->hideOnForm(),
             TextField::new('title', 'Nom'),
             TextEditorField::new('description'),
-//            MoneyField::new('price')->setCurrency('EUR'),
+
 
             ImageField::new('image', 'Image')
-                ->setBasePath('assets/images/products')
+                ->setBasePath('/Users/BIGBUD/Desktop/bureau-mine/public/build/images')
                 ->setUploadDir('public/build/images')
                 ->setSortable(false),
-
-//            CollectionField::new('attachements')
-//                ->setEntryType(AttachementType::class)
-//                ->onlyOnForms(),
 
             BooleanField::new('active'),
 //            AssociationField::new('category'),
