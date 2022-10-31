@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ArticleRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -25,6 +27,14 @@ class Article
 
     #[ORM\Column]
     private ?\DateTimeImmutable $updateAt = null;
+
+    #[ORM\OneToMany(mappedBy: 'article', targetEntity: Image::class)]
+    private Collection $image;
+
+    public function __construct()
+    {
+        $this->image = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -75,6 +85,36 @@ class Article
     public function setUpdateAt(\DateTimeImmutable $updateAt): self
     {
         $this->updateAt = $updateAt;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Image>
+     */
+    public function getImage(): Collection
+    {
+        return $this->image;
+    }
+
+    public function addImage(Image $image): self
+    {
+        if (!$this->image->contains($image)) {
+            $this->image->add($image);
+            $image->setArticle($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImage(Image $image): self
+    {
+        if ($this->image->removeElement($image)) {
+            // set the owning side to null (unless already changed)
+            if ($image->getArticle() === $this) {
+                $image->setArticle(null);
+            }
+        }
 
         return $this;
     }

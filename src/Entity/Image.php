@@ -19,6 +19,9 @@ class Image
     #[ORM\Column(length: 255)]
     private ?string $url = null;
 
+    #[ORM\ManyToOne(inversedBy: 'image')]
+    private ?Article $article = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -44,6 +47,18 @@ class Image
     public function setUrl(string $url): self
     {
         $this->url = $url;
+
+        return $this;
+    }
+
+    public function getArticle(): ?Article
+    {
+        return $this->article;
+    }
+
+    public function setArticle(?Article $article): self
+    {
+        $this->article = $article;
 
         return $this;
     }
