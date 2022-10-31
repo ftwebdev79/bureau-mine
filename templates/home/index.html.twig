@@ -3,9 +3,11 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block main %}
+    <div class="grid">
     {% for article in articles %}
     {% include 'partials/_card.html.twig' %}
-
     {% endfor %}
+
+    </div>
 
 {% endblock %}
