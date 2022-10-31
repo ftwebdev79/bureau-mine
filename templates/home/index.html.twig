@@ -3,5 +3,9 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block main %}
+    {% for article in articles %}
+    {% include 'partials/_card.html.twig' %}
+
+    {% endfor %}
 
 {% endblock %}
