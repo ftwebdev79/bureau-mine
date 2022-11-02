@@ -27,18 +27,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?string $password = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $firtname = null;
-
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $lastname = null;
-
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $pseudo = null;
-
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $role = null;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -107,53 +95,5 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
-    }
-
-    public function getFirtname(): ?string
-    {
-        return $this->firtname;
-    }
-
-    public function setFirtname(?string $firtname): self
-    {
-        $this->firtname = $firtname;
-
-        return $this;
-    }
-
-    public function getLastname(): ?string
-    {
-        return $this->lastname;
-    }
-
-    public function setLastname(?string $lastname): self
-    {
-        $this->lastname = $lastname;
-
-        return $this;
-    }
-
-    public function getPseudo(): ?string
-    {
-        return $this->pseudo;
-    }
-
-    public function setPseudo(?string $pseudo): self
-    {
-        $this->pseudo = $pseudo;
-
-        return $this;
-    }
-
-    public function getRole(): ?string
-    {
-        return $this->role;
-    }
-
-    public function setRole(?string $role): self
-    {
-        $this->role = $role;
-
-        return $this;
     }
 }

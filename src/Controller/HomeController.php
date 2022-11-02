@@ -16,4 +16,12 @@ class HomeController extends AbstractController
             'articles' => $articleRepository->findAll(),
         ]);
     }
+
+    #[Route('/{id}/details', name: 'app_home_details')]
+    public function details(ArticleRepository $articleRepository, string $id): Response
+    {
+        return $this->render('home/details.html.twig', [
+            'article' => $articleRepository->find($id),
+        ]);
+    }
 }
