@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Article;
 use App\Entity\Category;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -19,12 +20,13 @@ class DashboardController extends AbstractDashboardController
     public function __construct(private AdminUrlGenerator $adminUrlGenerator)
     {
     }
+
     #[isGranted('ROLE_ADMIN')]
     #[Route('/admin', name: 'admin')]
     public function index(): Response
     {
 
-        $url =$this->adminUrlGenerator
+        $url = $this->adminUrlGenerator
             ->setController(ArticleCrudController::class)
             ->generateUrl();
 
@@ -35,7 +37,9 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('BureauMine');
+            ->setTitle('<img src="public/images/LOGO_BUREAU_MINE.png" alt="" class="img-fluid d-block mx-auto" 
+                                                        style="max-width:100px; width:100%;">')
+            ->renderContentMaximized();
     }
 
     public function configureMenuItems(): iterable
@@ -55,6 +59,19 @@ class DashboardController extends AbstractDashboardController
         ]);
 
     }
+
+    public function configureAssets(): Assets
+    {
+        return parent::configureAssets()
+            ->addWebpackEncoreEntry('admin');
+    }
+
+
+
+
+
+
+
 
 //    public function configureCrud(): Crud
 //    {
