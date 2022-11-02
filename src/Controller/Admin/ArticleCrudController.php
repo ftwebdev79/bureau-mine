@@ -3,15 +3,16 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Article;
-use App\Entity\Category;
+
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ORM\QueryBuilder;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\MoneyField;
+
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
@@ -30,7 +31,7 @@ class ArticleCrudController extends AbstractCrudController
         return [
             IdField::new('id')->hideOnForm(),
             TextField::new('title', 'Nom'),
-            TextEditorField::new('description'),
+            TextEditorField::new('description', 'Description'),
 
 
             ImageField::new('image', 'Image')
@@ -39,7 +40,13 @@ class ArticleCrudController extends AbstractCrudController
                 ->setSortable(false),
 
             BooleanField::new('active'),
-//            AssociationField::new('category'),
+
+            AssociationField::new('categories')
+                ->setQueryBuilder(function (QueryBuilder $queryBuilder){
+                    $queryBuilder->where('entity.active = true');
+                })
+            ,
+
             DateTimeField::new('updatedAt')->hideOnForm(),
             DateTimeField::new('createdAt')->hideOnForm(),
         ];
