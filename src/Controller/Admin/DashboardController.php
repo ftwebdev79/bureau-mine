@@ -4,11 +4,13 @@ namespace App\Controller\Admin;
 
 use App\Entity\Article;
 use App\Entity\Category;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -19,11 +21,12 @@ class DashboardController extends AbstractDashboardController
     {
     }
 
+    #[isGranted('ROLE_ADMIN')]
     #[Route('/admin', name: 'admin')]
     public function index(): Response
     {
 
-        $url =$this->adminUrlGenerator
+        $url = $this->adminUrlGenerator
             ->setController(ArticleCrudController::class)
             ->generateUrl();
 
@@ -34,26 +37,41 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('BureauMine');
+            ->setTitle('<img src="public/images/LOGO_BUREAU_MINE.png" alt="" class="img-fluid d-block mx-auto" 
+                                                        style="max-width:100px; width:100%;">')
+            ->renderContentMaximized();
     }
 
     public function configureMenuItems(): iterable
     {
         yield MenuItem::section('DashBoard', 'fa fa-home');
 
-        yield MenuItem::subMenu('Products', 'fa-solid fa-newspaper')->setSubItems([
-            MenuItem::linkToCrud('Create artricle', 'fas fa-plus', Article::class)
+        yield MenuItem::subMenu('Articles', 'fa-solid fa-newspaper')->setSubItems([
+            MenuItem::linkToCrud('Creer artricle', 'fas fa-plus', Article::class)
                 ->setAction(Crud::PAGE_NEW),
-            MenuItem::linkToCrud('Show artricle', 'fas fa-eye', Article::class),
+            MenuItem::linkToCrud('Voir les articles', 'fas fa-eye', Article::class),
         ]);
 
         yield MenuItem::subMenu('Categories', 'fa-solid fa-newspaper')->setSubItems([
-            MenuItem::linkToCrud('Create categories', 'fas fa-plus', Category::class)
+            MenuItem::linkToCrud('Creer categories', 'fas fa-plus', Category::class)
                 ->setAction(Crud::PAGE_NEW),
-            MenuItem::linkToCrud('Show categories', 'fas fa-eye', Category::class),
+            MenuItem::linkToCrud('Voir les categories', 'fas fa-eye', Category::class),
         ]);
 
     }
+
+    public function configureAssets(): Assets
+    {
+        return parent::configureAssets()
+            ->addWebpackEncoreEntry('admin');
+    }
+
+
+
+
+
+
+
 
 //    public function configureCrud(): Crud
 //    {
