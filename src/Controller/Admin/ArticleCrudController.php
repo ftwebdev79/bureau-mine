@@ -28,29 +28,19 @@ class ArticleCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
-        return [
-            IdField::new('id')->hideOnForm(),
-            TextField::new('title', 'Nom'),
-            TextEditorField::new('description', 'Description'),
 
+        yield IdField::new('id')->hideOnForm();
+        yield TextField::new('title', 'Nom');
+        yield TextEditorField::new('description', 'Description');
+        yield BooleanField::new('active');
 
-            ImageField::new('image', 'Image')
-                ->setBasePath('/Users/BIGBUD/Desktop/bureau-mine/public/build/images')
-                ->setUploadDir('public/build/images')
-                ->setSortable(false),
+        yield ImageField::new('image')
+            ->setBasePath('build/images')
+            ->setUploadDir('public/build/images');
 
-            BooleanField::new('active'),
+//        yield DateTimeField::new('updatedAt')->hideOnForm();
+        yield DateTimeField::new('createdAt')->hideOnForm();
 
-            AssociationField::new('categories')->setTemplatePath('admin/field/show-category.html.twig')
-//                ->setQueryBuilder(function (QueryBuilder $queryBuilder) {
-//                    $queryBuilder->select('category.name');
-//                })
-
-            ,
-
-            DateTimeField::new('updatedAt')->hideOnForm(),
-            DateTimeField::new('createdAt')->hideOnForm(),
-        ];
     }
 
     public function persistEntity(EntityManagerInterface $entityManager, $entityInstance): void

@@ -1,15 +1,15 @@
 
 
-{% for categories in field.value %}
-    {%- set url = ea_url()
-        .setController('src/Controller/Admin/ArticleCrudController.php')
-        .setAction('detail')
-        .setEntityId(category.id)
-    -%}
-    <a href="{{ url }}">
-        {{ category.name }}{% if not loop.last %}, {% endif %}
-    </a>
-{% else %}
-    <span class="badge badge-secondary">None</span>
-    {{ dump(field.value) }}
-{% endfor %}
+{#{% for categories in field.value %}#}
+{#    {%- set url = ea_url()#}
+{#        .setController('src/Controller/Admin/ArticleCrudController.php')#}
+{#        .setAction('detail')#}
+{#        .setEntityId(category.id)#}
+{#    -%}#}
+{#    <a href="{{ url }}">#}
+{#        {{ category.name }}{% if not loop.last %}, {% endif %}#}
+{#    </a>#}
+{#{% else %}#}
+{#    <span class="badge badge-secondary">None</span>#}
+{#    {{ dump(field.value) }}#}
+{#{% endfor %}#}

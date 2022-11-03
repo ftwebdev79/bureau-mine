@@ -27,7 +27,7 @@ class CategoryCrudController extends AbstractCrudController
             TextField::new('name'),
             ColorField::new('color'),
 
-            AssociationField::new('articles'),
+            AssociationField::new('articles', 'test')->renderAsNativeWidget(),
 
             DateTimeField::new('updatedAt')->hideOnForm(),
             DateTimeField::new('createdAt')->hideOnForm(),
