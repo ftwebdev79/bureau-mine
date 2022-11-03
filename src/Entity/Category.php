@@ -109,6 +109,14 @@ class Category
        return $this->name;
     }
 
+    //    public function showCategory(Category $category):string {
+//
+//        foreach ($this->categories as $category ) {
+//            $category = $this->getCategories();
+//        };
+//        return $category;
+//    }
+
     public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->createdAt;

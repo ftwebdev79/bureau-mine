@@ -41,10 +41,11 @@ class ArticleCrudController extends AbstractCrudController
 
             BooleanField::new('active'),
 
-            AssociationField::new('categories')
-                ->setQueryBuilder(function (QueryBuilder $queryBuilder){
-                    $queryBuilder->where('entity.active = true');
-                })
+            AssociationField::new('categories')->setTemplatePath('admin/field/show-category.html.twig')
+//                ->setQueryBuilder(function (QueryBuilder $queryBuilder) {
+//                    $queryBuilder->select('category.name');
+//                })
+
             ,
 
             DateTimeField::new('updatedAt')->hideOnForm(),
