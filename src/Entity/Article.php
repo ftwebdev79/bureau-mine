@@ -8,6 +8,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
+
 #[ORM\Entity(repositoryClass: ArticleRepository::class)]
 class Article
 {
@@ -34,9 +35,12 @@ class Article
     #[ORM\ManyToMany(targetEntity: Category::class, mappedBy: 'articles')]
     private Collection $categories;
 
+
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
+        $this->articleCategories = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -131,12 +135,13 @@ class Article
         return $this;
     }
 
-
+    public function addArticleCategory(Category $category){
+        $this->articleCategories [] = $category;
+    }
 
     public function __toString(): string
     {
-     return  $this->title;
+        return  $this->title;
     }
-
 
 }

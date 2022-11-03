@@ -95,6 +95,8 @@ class Category
         }
 
         return $this;
+
+
     }
 
     public function removeArticle(Article $article): self
@@ -109,13 +111,7 @@ class Category
        return $this->name;
     }
 
-    //    public function showCategory(Category $category):string {
-//
-//        foreach ($this->categories as $category ) {
-//            $category = $this->getCategories();
-//        };
-//        return $category;
-//    }
+
 
     public function getCreatedAt(): ?\DateTimeInterface
     {

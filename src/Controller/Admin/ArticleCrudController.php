@@ -4,6 +4,8 @@ namespace App\Controller\Admin;
 
 use App\Entity\Article;
 
+use App\Repository\CategoryRepository;
+use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\QueryBuilder;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
@@ -26,12 +28,14 @@ class ArticleCrudController extends AbstractCrudController
         return Article::class;
     }
 
+
+
     public function configureFields(string $pageName): iterable
     {
 
         yield IdField::new('id')->hideOnForm();
         yield TextField::new('title', 'Nom');
-        yield TextEditorField::new('description', 'Description');
+        yield TextField::new('description', 'Description');
         yield BooleanField::new('active');
 
         yield ImageField::new('image')
@@ -40,6 +44,8 @@ class ArticleCrudController extends AbstractCrudController
 
 //        yield DateTimeField::new('updatedAt')->hideOnForm();
         yield DateTimeField::new('createdAt')->hideOnForm();
+        yield AssociationField::new('categories')
+            ->setTemplatePath('admin/field/show-category.html.twig');
 
     }
 
@@ -50,7 +56,6 @@ class ArticleCrudController extends AbstractCrudController
         $entityInstance->setCreatedAt(new \DateTimeImmutable);
 
         parent::persistEntity($entityManager, $entityInstance);
-
     }
-
 }
+
