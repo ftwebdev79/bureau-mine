@@ -1,0 +1,87 @@
+.titre {
+  width: 100%;
+  height: auto;
+  text-align: left;
+  font-weight: bold;
+  color: black;
+  margin-top: 8vh;
+  margin-left: 2vw;
+}
+
+.clientInfo {
+  display: flex;
+  justify-content: flex-end;
+
+  .info {
+    //display: flex;
+    //flex-direction: column;
+    //align-content: space-between;
+    width: 50%;
+    height: auto;
+    color: black;
+
+    .infoFR {
+      margin: 0 1rem 4rem 2rem;
+    }
+
+    .infoENG {
+      margin: 2rem 1rem 0 2rem;
+    }
+
+  }
+
+  .client {
+    width: 28%;
+    height: auto;
+    background-color: white;
+    text-align: left;
+    color: black;
+
+    ul {
+      margin-top: 0.4rem;
+      list-style-type: none;
+      padding-left: 0.4rem;
+    }
+
+    .titreClient {
+      font-weight: bolder;
+      font-size: smaller;
+      margin-bottom: 1rem;
+    }
+
+  }
+}
+
+.infoBlock {
+  width: 69%;
+  height: auto;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10vh;
+  padding-left: 8vw;
+
+  div {
+    width: 25%;
+    height: auto;
+    padding: 1rem;
+    margin-bottom: 8vh;
+    color: black;
+
+
+    h2 {
+      position: relative;
+      text-align: left;
+      color: black;
+      padding-top: 20px;
+    }
+
+    h2:before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 80%;
+      height: 3px;
+      background: black;
+    }
+  }
+}

@@ -8,10 +8,10 @@
   padding-top: 30px;
   background-color: #091825;
 
-  h2, p {
+  p {
     width: 50%;
+    color:white;
   }
-
 }
 
 #navbar {
@@ -21,20 +21,34 @@
   background: linear-gradient(0deg, rgba(255, 255, 255, 0) 5%,
           rgba(255, 255, 255, 0.4990371148459384) 55%,
           rgba(255, 255, 255, 1) 100%);
+  z-index: 100;
+}
+
+.logo-header {
+  width: 5%;
+  height: auto;
+  margin-top: 2vh;
+  margin-left: 2vw;
 }
 
 #navbar a {
   float: right;
   display: block;
-  color: #091825;
+  color: grey;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
 }
 
+.test-header {
+  min-width: 8%;
+  height: auto;
+  margin-left: 2vw;
+  margin-top: 2vh;
+}
+
 #navbar a:hover {
-  background-color: #ddd;
   color: black;
 }
 
@@ -47,51 +61,4 @@
   top: 0;
   width: 100%;
 }
-
-//.sticky + .content {
-//  padding-top: 500px;
-//}
-
-
-//.headerCenter {
-//  display: flex;
-//  justify-content: center;
-//  align-content: center;
-//  margin-top: 0%;
-//  margin-bottom: 2%;
-//  background-color: whitesmoke;
-//
-//  header {
-//    width: 80%;
-//    display: flex;
-//    align-items: center;
-//    justify-content: space-around;
-//
-//    a {
-//      font-size: 110%;
-//      letter-spacing: 1px;
-//      text-decoration: none;
-//      margin: 1rem;
-//      opacity: 0.2;
-//    }
-//
-//    a:hover {
-//      opacity: 1;
-//      transition: 0.5s;
-//    }
-//
-//    .logo {
-//      width: 25%;
-//      height: auto;
-//      opacity: 0.2;
-//    }
-//
-//    .logo:hover {
-//      opacity: 1;
-//      transition: 3s;
-//    }
-//
-//
-//  }
-//}
 
