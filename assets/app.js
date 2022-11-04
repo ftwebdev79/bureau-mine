@@ -12,3 +12,4 @@ import './styles/app.scss';
 import './bootstrap';
 
 import './styles/JS/scripts';
+import './scrollMenuSticky';

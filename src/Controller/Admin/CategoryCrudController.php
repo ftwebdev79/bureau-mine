@@ -22,17 +22,17 @@ class CategoryCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
-        return [
-            IdField::new('id')->hideOnForm(),
-            TextField::new('name'),
-            ColorField::new('color'),
-
-            AssociationField::new('articles', 'test')->renderAsNativeWidget(),
-
-            DateTimeField::new('updatedAt')->hideOnForm(),
-            DateTimeField::new('createdAt')->hideOnForm(),
-
-        ];
+        yield IdField::new('id')->hideOnForm();
+        yield TextField::new('name');
+        yield ColorField::new('color');
+        yield AssociationField::new('articles', 'Articles associés')
+            ->setFormTypeOptions([
+                'by_reference' => true,
+            ]);
+//        yield DateTimeField::new('updatedAt')->hideOnForm();
+        yield DateTimeField::new('createdAt', 'Créé le')
+            ->setFormat('dd MMMM yyyy ', 'none')
+            ->hideOnForm();
     }
 
     public function persistEntity(EntityManagerInterface $entityManager, $entityInstance): void

@@ -1,41 +1,97 @@
-.headerCenter {
+.header {
   display: flex;
-  justify-content: center;
-  align-content: center;
-  margin-top: 2%;
-  margin-bottom: 2%;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  width: 100vw;
+  height: 92vh;
+  padding-top: 30px;
+  background-color: #091825;
 
-  header {
-    width: 80%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-
-    a {
-      font-size: 110%;
-      letter-spacing: 1px;
-      text-decoration: none;
-      margin: 1rem;
-      opacity: 0.2;
-    }
-
-    a:hover {
-      opacity: 1;
-      transition: 0.5s;
-    }
-
-    .logo {
-      width: 25%;
-      height: auto;
-      opacity: 0.2;
-    }
-
-    .logo:hover {
-      opacity: 1;
-      transition: 3s;
-    }
-
-
+  h2, p {
+    width: 50%;
   }
+
 }
+
+#navbar {
+  overflow: hidden;
+  width: 100vw;
+  height: 8vh;
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0) 5%,
+          rgba(255, 255, 255, 0.4990371148459384) 55%,
+          rgba(255, 255, 255, 1) 100%);
+}
+
+#navbar a {
+  float: right;
+  display: block;
+  color: #091825;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+//.sticky + .content {
+//  padding-top: 500px;
+//}
+
+
+//.headerCenter {
+//  display: flex;
+//  justify-content: center;
+//  align-content: center;
+//  margin-top: 0%;
+//  margin-bottom: 2%;
+//  background-color: whitesmoke;
+//
+//  header {
+//    width: 80%;
+//    display: flex;
+//    align-items: center;
+//    justify-content: space-around;
+//
+//    a {
+//      font-size: 110%;
+//      letter-spacing: 1px;
+//      text-decoration: none;
+//      margin: 1rem;
+//      opacity: 0.2;
+//    }
+//
+//    a:hover {
+//      opacity: 1;
+//      transition: 0.5s;
+//    }
+//
+//    .logo {
+//      width: 25%;
+//      height: auto;
+//      opacity: 0.2;
+//    }
+//
+//    .logo:hover {
+//      opacity: 1;
+//      transition: 3s;
+//    }
+//
+//
+//  }
+//}
 
