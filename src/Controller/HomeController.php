@@ -13,10 +13,8 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
     #[Route('/', name: 'app_home')]
-    public function index(ArticleRepository $articleRepository,EntityManagerInterface $em, CategoryRepository $categoryRepository): Response
+    public function index(ArticleRepository $articleRepository): Response
     {
-
-//        dd($entities);
 
         return $this->render('home/index.html.twig', [
             'articles' => $articleRepository->findAll(),

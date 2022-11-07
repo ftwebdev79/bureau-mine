@@ -45,15 +45,17 @@ class ArticleCrudController extends AbstractCrudController
         yield ImageField::new('image')
             ->setBasePath('build/images')
             ->setUploadDir('public/build/images');
+//            ->setFieldFqcn();
 
-//        yield CollectionField::new('image')
-////            ->setEntryType()
+        yield CollectionField::new('image');
+//          ->setEntryType();
 //            ->onlyOnForms();
 
-//        yield DateTimeField::new('updatedAt')->hideOnForm();
         yield DateTimeField::new('createdAt', 'Créé le')
             ->hideOnForm()
             ->setFormat('dd MMMM yyyy ', 'none');
+//        yield DateTimeField::new('updatedAt')->hideOnForm();
+
     }
 
     public function persistEntity(EntityManagerInterface $entityManager, $entityInstance): void
