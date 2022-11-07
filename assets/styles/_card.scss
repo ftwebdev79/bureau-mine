@@ -1,6 +1,19 @@
-.grid{
+.grid {
   display: grid;
   grid-gap: 2em;
   grid: masonry / repeat(auto-fit, minmax(20em, 1fr));
 }
 
+.card-title {
+  font-family: BemboBookMTStd-Regular, serif;
+}
+
+.categoryCard {
+  text-decoration: none;
+  color: black;
+  font-family: TwCenMTStd-Light, serif;
+
+  a {
+    text-decoration: none
+  }
+}

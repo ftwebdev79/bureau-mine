@@ -13,19 +13,17 @@
   justify-content: space-between;
   align-content: center;
   color: black;
-
-  p {
-    font-size: smaller;
-  }
-
-
+  margin-top: 10vh;
+  margin-bottom: 2vh;
 }
 
-.trait{
+.trait {
   width: 0.2rem;
   height: 1rem;
   margin-top: 0.2rem;
   background-color: black;
 }
 
-
+.container{
+  max-width: 98% !important;
+}
