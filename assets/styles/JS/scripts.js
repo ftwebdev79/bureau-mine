@@ -1,15 +1,11 @@
 'use strict'
+let sliderWrap = document.querySelector('.slider-wrap')
+let slider = document.querySelector('.slider')
+let cloneWidth;
+let sliderWidth;
+let clones =[];
+let disableScroll = false;
+let scrollPos;
 
-// vanilla JS
-// init with element
-let grid = document.querySelector('.grid');
-let masonryFirst = new Masonry( grid, {
-    // options...
-    itemSelector: '.grid-item',
-    columnWidth: 200
-});
-
-// init with selector
-let masonry = new Masonry( '.grid', {
-    // options...
-});
+let items = [...document.querySelectorAll('.slider-items')];
+let images = [...document.querySelectorAll('.img-div')]

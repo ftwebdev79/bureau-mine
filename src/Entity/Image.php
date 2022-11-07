@@ -19,8 +19,10 @@ class Image
     #[ORM\Column(length: 255)]
     private ?string $url = null;
 
-    #[ORM\ManyToOne(inversedBy: 'image')]
+    #[ORM\ManyToOne(inversedBy: 'images')]
     private ?Article $article = null;
+
+
 
     public function getId(): ?int
     {
@@ -62,4 +64,11 @@ class Image
 
         return $this;
     }
+
+    public function __toString(): string
+    {
+        return $this->url;
+    }
+
+
 }

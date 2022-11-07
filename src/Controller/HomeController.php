@@ -24,4 +24,6 @@ class HomeController extends AbstractController
             'article' => $articleRepository->find($id),
         ]);
     }
+
+
 }
