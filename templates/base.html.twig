@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="FR">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Welcome!{% endblock %}</title>
@@ -14,17 +14,20 @@
 </head>
 <body>
 {% block body %}
-    {% block header %}
-        {% include('partials/_header.html.twig') %}
-    {% endblock %}
+
+{#    {% block header %}#}
+{#        {% include('partials/_header.html.twig') %}#}
+{#    {% endblock %}#}
 
     <main class="{% block main_class %}{% endblock %}">
         {% block main %}
         {% endblock %}
     </main>
+
     {% block footer %}
         {% include('partials/_footer.html.twig') %}
     {% endblock %}
+
 {% endblock %}
 
 

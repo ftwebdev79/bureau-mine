@@ -35,8 +35,6 @@ class Article
     #[ORM\ManyToMany(targetEntity: Category::class, mappedBy: 'articles')]
     private Collection $categories;
 
-
-
     public function __construct()
     {
         $this->categories = new ArrayCollection();
@@ -134,39 +132,13 @@ class Article
         return $this;
     }
 
+    public function addArticleCategory(Category $category){
+        $this->articleCategories [] = $category;
+    }
+
     public function __toString(): string
     {
         return  $this->title;
-    }
-
-    /**
-     * @return Collection<int, Image>
-     */
-    public function getImages(): Collection
-    {
-        return $this->images;
-    }
-
-    public function addImage(Image $image): self
-    {
-        if (!$this->images->contains($image)) {
-            $this->images->add($image);
-            $image->setArticle($this);
-        }
-
-        return $this;
-    }
-
-    public function removeImage(Image $image): self
-    {
-        if ($this->images->removeElement($image)) {
-            // set the owning side to null (unless already changed)
-            if ($image->getArticle() === $this) {
-                $image->setArticle(null);
-            }
-        }
-
-        return $this;
     }
 
 }

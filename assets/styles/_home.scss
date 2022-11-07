@@ -1,0 +1,31 @@
+.blocCat {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 4rem;
+}
+
+.blocCategory {
+  width: 50%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  color: black;
+
+  p {
+    font-size: smaller;
+  }
+
+
+}
+
+.trait{
+  width: 0.2rem;
+  height: 1rem;
+  margin-top: 0.2rem;
+  background-color: black;
+}
+
+

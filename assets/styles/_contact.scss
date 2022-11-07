@@ -1,0 +1,31 @@
+.titreContact {
+  height: auto;
+  text-align: left;
+  font-weight: bolder;
+  color: black;
+  margin-top: 8vh;
+  margin-left: 2vw;
+
+  .blocContactTitre{
+    width: 20%;
+    height: auto;
+  }
+  .blocInfoContact{
+    width: 40%;
+    height: auto;
+    font-size: xx-large;
+    font-weight: lighter;
+  }
+}
+.imageContact{
+  display: flex;
+  justify-content: center;
+
+  .imgContact{
+    width: 25%;
+    height: auto;
+    margin-top: 10vh;
+    margin-left: 3vw;
+    margin-bottom: 5vh;
+  }
+}
