@@ -136,11 +136,9 @@ class Article
         $this->articleCategories [] = $category;
     }
 
-
     public function __toString(): string
     {
         return  $this->title;
-
     }
 
 }
