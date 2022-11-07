@@ -6,7 +6,7 @@
     {% include('partials/_headerHome.html.twig') %}
     <div class="blocCat">
         <div class="blocCategory">
-            <p><strong>Filtres :</strong></p>
+            <span class="textFiltre"><strong><i>Filtres :</i></strong></span>
             {% for article in articles | slice(0, 1) %}
                  {% for category in article.categories %}
                     <a href="{{ path('app_category_detail', { 'id': category.id }) }}">{{ category.name }}</a>

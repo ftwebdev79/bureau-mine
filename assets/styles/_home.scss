@@ -11,19 +11,24 @@
   height: auto;
   display: flex;
   justify-content: space-between;
-  align-content: center;
+  align-items: center;
   color: black;
   margin-top: 10vh;
   margin-bottom: 2vh;
 }
 
-.trait {
-  width: 0.2rem;
-  height: 1rem;
-  margin-top: 0.2rem;
-  background-color: black;
-}
-
 .container{
   max-width: 98% !important;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+  font-family: TwCenMTStd-Light, sans-serif;
+  font-size: smaller;
+  letter-spacing: 0.5px;
+}
+
+.textFiltre{
+  font-family: BemboBookMTStd-Regular, serif;
 }

@@ -51,8 +51,8 @@
     height: 100%;
     overflow-y: scroll;
     scrollbar-width: thin;
-
     background-color: #F5F5F5;
+    border-left: 1px solid #4d4d4d;
 
     .blocBlanc {
       width: 100%;
@@ -75,8 +75,6 @@
       padding-right: 20px;
       padding-top: 20px;
     }
-
-
   }
 }
 
