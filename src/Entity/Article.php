@@ -35,8 +35,6 @@ class Article
     #[ORM\ManyToMany(targetEntity: Category::class, mappedBy: 'articles')]
     private Collection $categories;
 
-
-
     public function __construct()
     {
         $this->categories = new ArrayCollection();
@@ -138,9 +136,11 @@ class Article
         $this->articleCategories [] = $category;
     }
 
+
     public function __toString(): string
     {
         return  $this->title;
+
     }
 
 }

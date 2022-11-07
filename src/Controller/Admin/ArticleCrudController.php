@@ -46,9 +46,9 @@ class ArticleCrudController extends AbstractCrudController
             ->setBasePath('build/images')
             ->setUploadDir('public/build/images');
 
-        yield CollectionField::new('image')
-//            ->setEntryType()
-            ->onlyOnForms();
+//        yield CollectionField::new('image')
+////            ->setEntryType()
+//            ->onlyOnForms();
 
 //        yield DateTimeField::new('updatedAt')->hideOnForm();
         yield DateTimeField::new('createdAt', 'Créé le')
