@@ -1,23 +1,8 @@
 @import 'node_modules/bootstrap/scss/bootstrap';
 @import '_header';
-@import '_variables';
 @import '_info';
 @import '_home';
 @import '_contact';
 @import 'bases';
 @import 'admin';
 @import 'details';
-@font-face {
-  font-family: 'TwCenMTStd-Light';
-  src: url('/assets/fonts/TwCenMTStd-Light.otf') format("otf");
-}
-
-@font-face {
-  font-family: 'BemboBookMTStd-BoldIt';
-  src: url('/assets/fonts/BemboBookMTStd-BoldIt.otf') format("otf");
-}
-
-@font-face {
-  font-family: 'BemboBookMTStd-Regular';
-  src: url('/assets/fonts/BemboBookMTStd-Regular.otf') format("otf");
-}

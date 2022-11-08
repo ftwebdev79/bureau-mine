@@ -4,7 +4,7 @@
 
 {% block main %}
 
-    {% include('partials/_header.html.twig') %}
+    {% include('partials/_headerDetail.html.twig') %}
     <div class="positionContainerDetail">
         <div class="wrapper">
             <div class="slider-wrap">
@@ -21,13 +21,13 @@
             <div class="article">
 
                 <div class="blocBlanc">
-                    <p class="detailTitre"><strong>Clients :</strong></p>
-                    <p>Haut Conseil Climat</p>
+                    <p><strong>Clients :</strong></p>
+                    <p>{{ article.title }}</p>
 
                     <p class="detailTitre"><strong>Date :</strong></p>
-                    <p>Juillet 2019</p>
+                    <p>{{ article.createdAt | date("d M", "Europe/Paris") }}</p>
 
-                    <p class="detailTitre"><strong>Type :</strong></p>
+                    <p class="detailTitre"><strong>Catégorie(s) :</strong></p>
                     {% for category in article.categories %}
                         <p class="categoryDetail">{{ category.name }}</p>
                     {% endfor %}
@@ -36,64 +36,26 @@
                 <h1 class="titleDetail">{{ article.title }}</h1>
 
                 <div class="textDetail">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                    has
-                    been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-                    of
-                    type and scrambled it to make a type specimen book. It has survived not only five centuries, but
-                    also
-                    the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the
-                    1960s
-                    with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
-                    publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                    Why do we use it?
-
-                    It is a long established fact that a reader will be distracted by the readable content of a page
-                    when
-                    looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal
-                    distribution
-                    of letters, as opposed to using 'Content here, content here', making it look like readable English.
-                    Many
-                    desktop publishing packages and web page editors now use Lorem Ipsum as their default model text,
-                    and a
-                    search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have
-                    evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
-
-                    Where does it come from?
-
-                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
-                    classical
-                    Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at
-                    Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from
-                    a
-                    Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the
-                    undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et
-                    Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the
-                    theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum
-                    dolor
-                    sit amet..", comes from a line in section 1.10.32.
-
-                    The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.
-                    Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in
-                    their
-                    exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
-                    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
-                    classical
-                    Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at
-                    Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from
-                    a
-                    Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the
-                    undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et
-                    Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the
-                    theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum
-                    dolor
-                    sit amet..", comes from a line in section 1.10.32.
-
-                    The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested.
-                    Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in
-                    their
-                    exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
+                    {{ article.description | nl2br }}
                 </div>
+
+                {% for key in test|keys | slice(0,1)%}
+
+                    {% if key <= test|length %}
+{{ dump(test|length) }}
+                        <div class="pageSuivante">
+                            <a href="{{ path('app_home_details', { 'id' : article.id  }) }}">
+                                <p><strong>Projet Suivant</strong></p>
+                            </a>
+                        </div>
+
+                    {% endif %}
+
+                {% endfor %}
+
+
+
+
             </div>
         </div>
     </div>

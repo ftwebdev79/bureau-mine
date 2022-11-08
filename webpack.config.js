@@ -1,16 +1,5 @@
 const Encore = require('@symfony/webpack-encore');
 const path = require('path');
-// const CopyPlugin = require("copy-webpack-plugin");
-// module.exports = {
-//     plugins: [
-//         new CopyPlugin({
-//             patterns: [
-//                 { from: "source", to: "dest" },
-//                 { from: "other", to: "public" },
-//             ],
-//         }),
-//     ],
-// };
 
 // Manually configure the runtime environment if not already configured yet by the "encore" command.
 // It's useful when you use tools that rely on webpack.config.js file.
@@ -26,6 +15,7 @@ Encore
             config: path.resolve(__dirname, 'sub-dir', 'custom.config.js'),
         };
     })
+
 
     .enablePostCssLoader()
     .setOutputPath('public/build/')
