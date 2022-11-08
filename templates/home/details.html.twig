@@ -8,12 +8,13 @@
     <div class="positionContainerDetail">
         <div class="wrapper">
             <div class="slider-wrap">
-                <div data-controller="carousel" class="swiper-container">
+                <div class="swiper-container" data-controller="carousel">
                     <div class="swiper-wrapper">
-                        {% for attachment in article.attachments  %}
-                        <div class="img-div swiper-slide">
-                            <img src="{{ asset( 'build/images/' ~ attachment.image) }}" alt="">
-                        </div>
+                        {% for attachment in article.attachments %}
+                            <div class="imgTest swiper-slide">
+                                <img class="imgDetailcover" src="{{ asset( 'build/images/' ~ attachment.image) }}"
+                                     alt="">
+                            </div>
                         {% endfor %}
                     </div>
                 </div>
@@ -41,24 +42,19 @@
                     {{ article.description | nl2br }}
                 </div>
 
-                {% for key in test|keys | slice(0,1)%}
-
-                    {% if key <= test|length %}
-{{ dump(test|length) }}
-                        <div class="pageSuivante">
-                            <a href="{{ path('app_home_details', { 'id' : article.id  }) }}">
-                                <p><strong>Projet Suivant</strong></p>
-                            </a>
-                        </div>
-
-                    {% endif %}
-
-                {% endfor %}
-
-
-
-
+                <div class="pageSuivante">
+                    <a href="{{ path('app_home_details', { 'id' : article.id + 1  }) }}">
+                        <p><strong>Projet Suivant</strong></p>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
 {% endblock %}
+{#                {% for key in test|keys | slice(0,1)%} #}
+
+{#                    {% if key <= test|length %} #}
+{# {{ dump(test) }} #}
+{#                    {% endif %} #}
+
+{#                {% endfor %} #}

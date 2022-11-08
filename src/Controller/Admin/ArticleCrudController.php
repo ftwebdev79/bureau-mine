@@ -25,8 +25,6 @@ use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class ArticleCrudController extends AbstractCrudController
 {
-//    public const PRODUCT_BASE_PATH = 'build/images';
-//    public const PRODUCT_UPLOAD_DIR = 'public/build/images';
 
     public static function getEntityFqcn(): string
     {
@@ -35,10 +33,6 @@ class ArticleCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
-        $imageFile = ImageField::new('thumbnailFile')->setFormType(VichImageType::class);
-        $image = ImageField::new('thumbnail')->setBasePath('/images/thumbnails');
-
-
         yield IdField::new('id')->hideOnForm();
         yield TextField::new('title', 'Nom');
         yield TextField::new('description', 'Description');
@@ -49,17 +43,10 @@ class ArticleCrudController extends AbstractCrudController
                 'by_reference' => false,
             ]);
 
-        yield ImageField::new('image', 'Image')
-            ->onlyOnIndex()
-            ->setBasePath('public/images/attachments')
-            ->setTemplatePath('images.html.twig');
-//            ->setUploadDir('public/build/images');
-//            ->setFieldFqcn('imageFile');
-
-        yield CollectionField::new('attachments')
+        yield CollectionField::new('attachments', 'Nombre d images')
             ->setEntryType(AttachmentType::class)
-            ->setFormTypeOption('by_reference', false);
-//            ->onlyOnForms();
+            ->setFormTypeOption('by_reference', false)
+            ->onlyOnForms();
 
         yield CollectionField::new('attachments')
             ->setTemplatePath('images.html.twig')
@@ -68,14 +55,7 @@ class ArticleCrudController extends AbstractCrudController
         yield DateTimeField::new('createdAt', 'Créé le')
             ->hideOnForm()
             ->setFormat('dd MMMM yyyy ', 'none');
-//        yield DateTimeField::new('updatedAt')->hideOnForm();
 
-        if ($pageName == crud::PAGE_INDEX || $pageName == crud::PAGE_DETAIL) {
-            $fields [] = $image;
-        } else {
-            $fields [] = $imageFile;
-        }
-        return $fields;
     }
 
     public function configureActions(Actions $actions): Actions
@@ -91,7 +71,5 @@ class ArticleCrudController extends AbstractCrudController
         $entityInstance->setCreatedAt(new \DateTimeImmutable);
 
         parent::persistEntity($entityManager, $entityInstance);
-
     }
-
 }
