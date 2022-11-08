@@ -25,12 +25,9 @@
         <div class="client">
             <ul>
                 <li class="titreClient">Clients :</li>
-                <li>Artemis Bergamotte</li>
-                <li>CBD 420</li>
-                <li>Le Comlitoir Naturel</li>
-                <li>DCW éditions</li>
-                <li>Ex-anima Muséum d’Histoire Naturelle de Bordeaux</li>
-                <li>Les Rencontres de Lure Terraroma Jaubert</li>
+                {% for article in articles | slice (0,5) %}
+                <li>{{ article.client }} </li>
+                {% endfor %}
                 <li>...</li>
             </ul>
 

@@ -35,8 +35,12 @@ class ArticleCrudController extends AbstractCrudController
     {
         yield IdField::new('id')->hideOnForm();
         yield TextField::new('title', 'Nom');
+        yield TextField::new('client', 'Client');
         yield TextField::new('description', 'Description');
-        yield BooleanField::new('active');
+//        yield BooleanField::new('active');
+        yield DateTimeField::new('dateProjet', 'Date de création du projet')
+            ->setFormat('short');
+
         yield AssociationField::new('categories', 'Catégories')
             ->setTemplatePath('admin/field/show-category.html.twig')
             ->setFormTypeOptions([
