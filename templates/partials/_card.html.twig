@@ -1,12 +1,14 @@
 <div class="col-sm-6 col-lg-4 mb-4 d-flex justify-content-center" style="position: absolute; left: 0; top: 0;">
     <div class="card bg-transparent border-0 rounded-0">
         <a href="{{ path('app_home_details', { 'id': article.id }) }}" style="text-decoration:none">
-            <img src="{{ asset( 'build/images/' ~ article.image) }}" class="card-img-top border-0 rounded-0" alt="">
+            {% for attachment in article.attachments | slice(0,1) %}
+            <img src="{{ asset( 'build/images/' ~ attachment.image ) }}" class="card-img-top border-0 rounded-0" alt="">
+            {% endfor %}
             <div class="card-body bg-transparent p-0">
                 <h5 class="card-title text-black titreCard">{{ article.title }}</h5>
                 <p class="categoryCard">
                     {% for category in article.categories %}
-                        {{ category.name }}{{ ' -' }}
+                        {{ category.name }}
                     {% endfor %}
                 </p>
                 {#                <p class="card-text"><small class="text-muted">{{  dump(article.categories.get("title")) }}</small></p> #}

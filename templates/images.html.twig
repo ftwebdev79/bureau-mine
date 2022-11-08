@@ -1,0 +1,5 @@
+<div class="form-widget d-flex flex-row w-25 img-fluid">
+    {% for image in field.value  %}
+        <img src="images/attachments/{{ image.image }}" alt="" class="img-thumbnail m-3">
+    {% endfor %}
+</div>

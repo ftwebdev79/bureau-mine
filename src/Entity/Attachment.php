@@ -3,26 +3,29 @@
 namespace App\Entity;
 
 use App\Repository\AttachmentRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
-use Vich\UploaderBundle\Mapping\Annotation\Uploadable;
-use Vich\UploaderBundle\Mapping\Annotation\UploadableField;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+
 
 #[ORM\Entity(repositoryClass: AttachmentRepository::class)]
-#[Uploadable]
+#[Vich\Uploadable]
 class Attachment
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
-
     private ?int $id = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $image = null;
 
-    #[UploadableField(mapping: 'attachment', fileNameProperty: 'image')]
-    private ?string $imageFile = null;
+    #[Vich\UploadableField(mapping: 'attachments', fileNameProperty: 'image')]
+    private ?File $imageFile;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $createdAt = null;
@@ -30,8 +33,14 @@ class Attachment
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $updatedAt = null;
 
-    #[ORM\ManyToOne(targetEntity: 'App\Entity\Article' ,inversedBy: 'attachments')]
+    #[ORM\ManyToOne(targetEntity: 'App\Entity\Article', cascade: ['persist'], inversedBy: 'attachments')]
     private ?Article $article = null;
+
+
+    public function __construct()
+    {
+
+    }
 
     public function getId(): ?int
     {
@@ -50,16 +59,16 @@ class Attachment
         return $this;
     }
 
-    public function getImageFile(): ?string
+    public function getImageFile(): ?File
     {
         return $this->imageFile;
     }
 
-    public function setImageFile(?string $imageFile): void
+    public function setImageFile(?File $imageFile): void
     {
         $this->imageFile = $imageFile;
-        if($imageFile){
-            $this->updatedAt = new \DateTimeImmutable();
+        if ($this->imageFile instanceof UploadedFile) {
+            $this->updatedAt = new \DateTimeImmutable('now');
         }
     }
 
@@ -98,4 +107,11 @@ class Attachment
 
         return $this;
     }
+
+    public function __toString(): string
+    {
+       return $this->image;
+    }
+
+
 }

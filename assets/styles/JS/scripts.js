@@ -1,15 +1,8 @@
 'use strict'
-let sliderWrap = document.querySelector('.slider-wrap')
-let slider = document.querySelector('.slider')
-let cloneWidth;
-let sliderWidth;
-let clones =[];
-let disableScroll = false;
-let scrollPos;
+import 'swiper/css/bundle';
+import { Application } from '@hotwired/stimulus';
+import Carousel from 'stimulus-carousel';
 
-let items = [...document.querySelectorAll('.slider-items')];
-let images = [...document.querySelectorAll('.img-div')];
+const application = Application.start()
+application.register('carousel', Carousel)
 
-images.forEach((image, idx)=>{
-    image.style.backgroundImage = `url(./images/${idx+1}.jpeg`
-})

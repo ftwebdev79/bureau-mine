@@ -26,19 +26,21 @@ class Article
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $createdAt = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $image = null;
-
     #[ORM\Column(nullable: true)]
     private ?bool $active = null;
 
     #[ORM\ManyToMany(targetEntity: Category::class, mappedBy: 'articles')]
     private Collection $categories;
 
+    #[ORM\OneToMany(mappedBy: 'article',targetEntity: Attachment::class, cascade: ['persist', 'remove'])]
+    private Collection $attachments;
+
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
-    }
+        $this->attachments = new ArrayCollection();
+      }
 
     public function getId(): ?int
     {
@@ -81,19 +83,7 @@ class Article
         return $this;
     }
 
-    public function getImage(): ?string
-    {
-        return $this->image;
-    }
-
-    public function setImage(?string $image): self
-    {
-        $this->image = $image;
-
-        return $this;
-    }
-
-    public function isActive(): ?bool
+        public function isActive(): ?bool
     {
         return $this->active;
     }
@@ -132,13 +122,42 @@ class Article
         return $this;
     }
 
-    public function addArticleCategory(Category $category){
-        $this->articleCategories [] = $category;
-    }
+
 
     public function __toString(): string
     {
         return  $this->title;
     }
+
+    /**
+     * @return Collection<int, Attachment>
+     */
+    public function getAttachments(): Collection
+    {
+        return $this->attachments;
+    }
+
+    public function addAttachment(Attachment $attachment): self
+    {
+        if (!$this->attachments->contains($attachment)) {
+            $this->attachments->add($attachment);
+            $attachment->setArticle($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAttachment(Attachment $attachment): self
+    {
+        if ($this->attachments->removeElement($attachment)) {
+            // set the owning side to null (unless already changed)
+            if ($attachment->getArticle() === $this) {
+                $attachment->setArticle(null);
+            }
+        }
+
+        return $this;
+    }
+
 
 }
