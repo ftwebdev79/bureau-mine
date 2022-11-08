@@ -85,7 +85,7 @@ class DashboardController extends AbstractDashboardController
 //            ->overrideTemplate('label/null', 'admin/labels/my_null_label.html.twig')
 //
 //            ->overrideTemplates([
-//                'crud/index' => 'admin/pages/index.html.twig',
+//                'crud/index' => 'admin/pages/detailCat.html.twig',
 //                'crud/field/textarea' => 'admin/fields/dynamic_textarea.html.twig',
 //            ])
 //            ;

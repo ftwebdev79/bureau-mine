@@ -6,16 +6,13 @@
     {% include('partials/_headerHome.html.twig') %}
     <div class="blocCat">
         <div class="blocCategory">
-            <p><strong>Filtres :</strong></p>
-            <p>Identité Visuelle</p>
-            <div class="trait"></div>
-            <p>Illustration</p>
-            <div class="trait"></div>
-            <p>Webdesign</p>
-            <div class="trait"></div>
-            <p>Typographie</p>
-            <div class="trait"></div>
-            <p>Motion Design</p>
+            <span class="textFiltre"><strong><i>Filtres :</i></strong></span>
+            {% for article in articles | slice(0, 1) %}
+                 {% for category in article.categories %}
+                    <a href="{{ path('app_category_detail', { 'id': category.id }) }}">{{ category.name }}</a>
+                     {% if not loop.last %}|{% endif %}
+                {% endfor %}
+            {% endfor %}
         </div>
     </div>
 

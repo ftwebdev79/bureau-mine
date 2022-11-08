@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Filtre{% endblock %}
+
+{% block main %}
+
+    {% include('partials/_header.html.twig') %}
+
+    <div class="container">
+        <div class="row"
+             data-masonry='{"percentPosition": true }'>
+
+            {% for article in category.articles %}
+                {% include 'partials/_cardCategory.html.twig' %}
+            {% endfor %}
+
+        </div>
+    </div
+
+{% endblock %}

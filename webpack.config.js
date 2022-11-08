@@ -16,6 +16,7 @@ Encore
         };
     })
 
+
     .enablePostCssLoader()
     .setOutputPath('public/build/')
     // public path used by the web server to access the output path
@@ -98,3 +99,5 @@ Encore
 ;
 
 module.exports = Encore.getWebpackConfig();
+
+
