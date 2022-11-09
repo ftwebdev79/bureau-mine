@@ -58,8 +58,49 @@
       padding-right: 20px;
       padding-top: 20px;
     }
-  }
 
+    .paginationDetails {
+      display: flex;
+      flex-direction: row;
+      margin: 1.5rem;
+
+      .blocPrecedent {
+        width: 50%;
+        display: flex;
+        justify-content: flex-start;
+
+        .fleche {
+          width: 10%;
+          height: auto;
+          transform: rotate(180deg);
+
+          a p {
+            display: flex;
+            justify-content: flex-end;
+            text-decoration: none;
+          }
+        }
+      }
+
+      .blocSuivant {
+        width: 50%;
+        display: flex;
+        align-content: center;
+        justify-content: flex-end;
+
+        a p {
+          display: flex;
+          justify-content: flex-end;
+          text-decoration: none;
+
+          .fleche {
+            width: 10%;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
 
   @media screen and (max-width: 1280px) {
     .wrapper {
@@ -71,7 +112,7 @@
       display: flex;
       flex-direction: column;
 
-      .blocBlanc{
+      .blocBlanc {
         padding-left: 30px;
       }
 

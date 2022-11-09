@@ -50,6 +50,15 @@ class ArticleRepository extends ServiceEntityRepository
             ->getResult();
     }
 
+    public function getPrevArticle($currentId): Array
+    {
+        return $this->createQueryBuilder('b')
+            ->where('b.id < :id')
+            ->setParameter('id', $currentId)
+            ->getQuery()
+            ->getResult();
+    }
+
 
 
 //    /**
