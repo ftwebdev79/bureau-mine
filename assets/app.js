@@ -13,3 +13,6 @@ import './bootstrap';
 
 import './styles/JS/scripts';
 import './scrollMenuSticky';
+
+
+new Filter(document.querySelector('.js-filter'));
