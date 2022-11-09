@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class CategoryController extends AbstractController
 {
     #[Route('category/{id}/details', name: 'app_category_detail')]
-    public function detailCat( CategoryRepository $categoryRepository, string $id): Response
+    public function detailCat(CategoryRepository $categoryRepository, string $id): Response
     {
         $category =$categoryRepository->find($id);
 

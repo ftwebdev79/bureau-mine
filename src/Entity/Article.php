@@ -35,6 +35,12 @@ class Article
     #[ORM\OneToMany(mappedBy: 'article',targetEntity: Attachment::class, cascade: ['persist', 'remove'])]
     private Collection $attachments;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $client = null;
+
+    #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $dateProjet = null;
+
 
     public function __construct()
     {
@@ -155,6 +161,30 @@ class Article
                 $attachment->setArticle(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getClient(): ?string
+    {
+        return $this->client;
+    }
+
+    public function setClient(?string $client): self
+    {
+        $this->client = $client;
+
+        return $this;
+    }
+
+    public function getDateProjet(): ?\DateTimeInterface
+    {
+        return $this->dateProjet;
+    }
+
+    public function setDateProjet(?\DateTimeInterface $dateProjet): self
+    {
+        $this->dateProjet = $dateProjet;
 
         return $this;
     }
