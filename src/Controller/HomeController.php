@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Repository\ArticleRepository;
-use phpDocumentor\Reflection\Types\Boolean;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -37,8 +36,7 @@ class HomeController extends AbstractController
     public function details(ArticleRepository $articleRepository, string $id): Response
     {
 
-
-        $test= $articleRepository->getNextArticle($id);
+        $test= $articleRepository->findAll();
 
 
         return $this->render('home/details.html.twig', [
@@ -46,7 +44,6 @@ class HomeController extends AbstractController
             'test'=> $test,
         ]);
     }
-
 
 
 }
