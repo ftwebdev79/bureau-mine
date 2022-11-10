@@ -1,3 +1,5 @@
+import * as json from "express";
+
 export default class Filter {
 
     /**
@@ -18,7 +20,7 @@ export default class Filter {
         this.category.querySelectorAll('a').forEach(a => {
             a.addEventListener('click', e => {
                 e.preventDefault();
-                this.loadUrl(a.getAttribute('href'));
+                this.loadUrl(a.getAttribute('href')).then(r => json.response );
             })
         })
     }
@@ -32,10 +34,13 @@ export default class Filter {
 
        if(response.status >= 200 && response.status < 300) {
            const data = await response.json()
+           console.log(data)
            this.content.innerHTML = data.content
-       } else {
+       }else{
            console.error(response)
        }
     }
+
 }
+
 
