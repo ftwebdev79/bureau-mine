@@ -1,3 +1,6 @@
+
+
+//INTRO PAGE ACCUEIL BLOC BLEU NUIT
 .header {
   display: flex;
   align-items: center;
@@ -7,24 +10,28 @@
   background-color: #091825;
 
   img {
-    width: 5%;
+    width: 100px;
     height: auto;
     margin-top: 10vh;
     margin-bottom: 15vh;
   }
 
-  p {
-    width: 50%;
+  .animate-text {
+    visibility: hidden;
     color: white;
     font-size: xx-large;
     text-align: left;
-    font-family: BemboBookMTStd-Regular, serif;
+    font-family: BemboBookMTStd-Bold, serif;
     line-height: 1.7em;
     letter-spacing: 1px;
   }
 
+  .animate-text {
+    width: 50%;
+  }
 }
 
+//MENU DE NAVIGATION
 #navbar {
   width: 100vw;
   height: 6vh;
@@ -44,11 +51,12 @@
 #navbar a {
   float: right;
   display: block;
-  color: grey;
+  color: #091825;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 17px;
+  font-family: TwCenMTStd-Light, sans-serif;
+  font-size: 15px;
 }
 
 .test-header {

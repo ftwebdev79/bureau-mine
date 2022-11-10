@@ -25,7 +25,7 @@ class Attachment
     private ?string $image = null;
 
     #[Vich\UploadableField(mapping: 'attachments', fileNameProperty: 'image')]
-    private ?File $imageFile;
+    private ?File $imageFile = null;
 
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $createdAt = null;

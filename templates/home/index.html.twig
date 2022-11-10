@@ -7,7 +7,7 @@
     <div class="container js-filter">
         <div class="blocCat">
             <div class="blocCategory js-filter-category">
-                <span class="textFiltre"><strong><i>Filtres :</i></strong></span>
+                <span class="textFiltre">Filtres :</span>
                 {% for article in articles | slice(0, 1) %}
                     {% for category in article.categories %}
                         <a href="{{ path('app_category_detail', { 'id': category.id }) }}">{{ category.name }}</a>

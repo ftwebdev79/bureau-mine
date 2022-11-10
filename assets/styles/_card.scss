@@ -4,16 +4,33 @@
   grid: masonry / repeat(auto-fit, minmax(20em, 1fr));
 }
 
+.card-body {
+  text-decoration: none;
+}
+
 .card-title {
-  font-family: BemboBookMTStd-Regular, serif;
+  font-family: BemboBookMTStd-Bold, serif;
+  font-size: 1.3em;
+  font-weight: bolder;
+  color: #091825;
+  margin-top: 5px;
+  margin-bottom: 0;
 }
 
 .categoryCard {
-  text-decoration: none;
-  color: black;
-  font-family: TwCenMTStd-Light, serif;
+  margin-top: 0;
+}
 
-  a {
-    text-decoration: none
-  }
+.titreCard{
+  font-family: BemboBookMTStd-Bold, serif;
+  font-size: 1.2em;
+  text-decoration: none;
+  color: #091824;
+}
+
+.linkCard {
+  font-family: TwCenMTStd-Light, serif;
+  font-size: 0.9em;
+  text-decoration: none;
+  color: #091824;
 }

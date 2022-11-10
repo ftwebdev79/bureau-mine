@@ -1,4 +1,4 @@
-// import {data} from "autoprefixer";
+// import * as json from "express";
 
 export default class Filter {
 
@@ -21,6 +21,7 @@ export default class Filter {
             a.addEventListener('click', e => {
                 e.preventDefault()
                 this.loadUrl(a.getAttribute('href'))
+                console.log(json.response)
             })
         })
     }
