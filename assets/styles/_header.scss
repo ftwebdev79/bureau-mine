@@ -1,16 +1,16 @@
-
-
 //INTRO PAGE ACCUEIL BLOC BLEU NUIT
 .header {
   display: flex;
   align-items: center;
   flex-direction: column;
   width: 100vw;
-  height: 94vh;
+  min-height: 94vh;
+  max-height: 94vh;
   background-color: #091825;
 
   img {
-    width: 100px;
+    min-width: 100px;
+    max-width: 100px;
     height: auto;
     margin-top: 10vh;
     margin-bottom: 15vh;
@@ -19,7 +19,7 @@
   .animate-text {
     visibility: hidden;
     color: white;
-    font-size: xx-large;
+    font-size: 2vw;
     text-align: left;
     font-family: BemboBookMTStd-Bold, serif;
     line-height: 1.7em;
@@ -42,10 +42,11 @@
 }
 
 .logo-header {
-  width: 5%;
+  min-width: 100px;
+  max-width: 100px;
   height: auto;
   margin-top: 2vh;
-  margin-left: 1.5vw;
+  margin-left: 2vw;
 }
 
 #navbar a {

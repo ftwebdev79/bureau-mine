@@ -3,7 +3,6 @@ window.addEventListener("DOMContentLoaded", (event) => {
     animate_text();
 });
 
-
 function animate_text()
 {
     let delay = 30,
