@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\ArticleRepository;
+use App\Repository\CategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -12,10 +13,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
     #[Route('/', name: 'app_home')]
-    public function index(ArticleRepository $articleRepository, Request $request): Response
+    public function index(ArticleRepository $articleRepository, CategoryRepository $categoryRepository, Request $request): Response
     {
 
         $articles = $articleRepository->findAll();
+        $categories = $categoryRepository->findAll();
 
 
         if ($request->isXmlHttpRequest()) {
@@ -27,6 +29,7 @@ class HomeController extends AbstractController
 
         return $this->render('home/index.html.twig', [
             'articles' => $articles,
+            'categories' => $categories,
         ]);
     }
 

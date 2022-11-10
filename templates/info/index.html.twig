@@ -34,30 +34,12 @@
         </div>
     </div>
     <div class="infoBlock">
+        {% for info in infos | slice(0, 4) %}
         <div>
-
-            <h2>Une info</h2>
-            Une info Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea com
+            <h2>{{ info.title }}</h2>
+            <p>{{ info.description | slice(0, 250)  }}</p>
         </div>
-        <div>
-
-            <h2>Une info</h2>
-            Une info Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-        </div>
-        <div>
-
-            <h2>Une info</h2>
-            Une info Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-            labore, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea com
-        </div>
-        <div>
-
-            <h2>Une info</h2>
-            Une info Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-        </div>
+        {% endfor %}
     </div>
 
 {% endblock %}

@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Article;
 use App\Entity\Category;
+use App\Entity\Info;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -55,6 +56,12 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToCrud('Créer catégories', 'fas fa-plus', Category::class)
                 ->setAction(Crud::PAGE_NEW),
             MenuItem::linkToCrud('Voir les catégories', 'fas fa-eye', Category::class),
+        ]);
+
+        yield MenuItem::subMenu('Infos', 'fa-solid fa-newspaper')->setSubItems([
+            MenuItem::linkToCrud('Créer une info', 'fas fa-plus', Info::class)
+                ->setAction(Crud::PAGE_NEW),
+            MenuItem::linkToCrud('Voir les infos', 'fas fa-eye', Info::class),
         ]);
 
     }

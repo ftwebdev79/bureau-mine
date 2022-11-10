@@ -8,12 +8,10 @@
         <div class="blocCat">
             <div class="blocCategory js-filter-category">
                 <span class="textFiltre">Filtres :</span>
-                {% for article in articles | slice(0, 1) %}
-                    {% for category in article.categories %}
+                    {% for category in categories %}
                         <a href="{{ path('app_category_detail', { 'id': category.id }) }}">{{ category.name }}</a>
                         {% if not loop.last %}|{% endif %}
                     {% endfor %}
-                {% endfor %}
             </div>
         </div>
 

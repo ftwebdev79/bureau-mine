@@ -21,7 +21,6 @@ export default class Filter {
             a.addEventListener('click', e => {
                 e.preventDefault()
                 this.loadUrl(a.getAttribute('href'))
-                console.log(json.response)
             })
         })
     }
