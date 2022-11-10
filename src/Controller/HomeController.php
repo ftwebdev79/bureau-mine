@@ -18,8 +18,6 @@ class HomeController extends AbstractController
         $articles = $articleRepository->findAll();
 
 
-
-
         if ($request->isXmlHttpRequest()) {
             return new JsonResponse([
                 'content' => $this->renderView('home/article.html.twig', ['articles' => $articles])
@@ -36,13 +34,14 @@ class HomeController extends AbstractController
     #[Route('/{id}/details', name: 'app_home_details')]
     public function details(ArticleRepository $articleRepository, string $id): Response
     {
-
-        $test= $articleRepository->findAll();
-
+        $article = $articleRepository->find($id);
+        $nextProject = $articleRepository->getNextArticle($id);
+        $previousProject = $articleRepository->getPrevArticle($id);
 
         return $this->render('home/details.html.twig', [
-            'article' => $articleRepository->find($id),
-            'test'=> $test,
+            'article' => $article,
+            'next' => $nextProject,
+            'previous' => $previousProject,
         ]);
     }
 
