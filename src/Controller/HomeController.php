@@ -37,6 +37,7 @@ class HomeController extends AbstractController
     #[Route('/{id}/details', name: 'app_home_details')]
     public function details(ArticleRepository $articleRepository, string $id): Response
     {
+
         $article = $articleRepository->find($id);
         $nextProject = $articleRepository->getNextArticle($id);
         $previousProject = $articleRepository->getPrevArticle($id);

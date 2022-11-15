@@ -64,12 +64,11 @@
                     <div class="blocSuivant">
                         {% if next[0] is defined %}
                             <a href="{{ path('app_home_details', { 'id' : next[0].id  }) }}">
-
-                                       <p>Projet Suivant
-                                       <img src="{{ asset('build/images/flecheBureauMine.png') }}"
-                                             alt="fleche-Detail-Projet"
-                                             class="fleche">
-                                       </p>
+                                <p>Projet Suivant
+                                    <img src="{{ asset('build/images/flecheBureauMine.png') }}"
+                                         alt="fleche-Detail-Projet"
+                                         class="fleche">
+                                </p>
                             </a>
                         {% endif %}
                     </div>

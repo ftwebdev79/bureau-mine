@@ -5,7 +5,6 @@ namespace App\Repository;
 use App\Entity\Article;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
-use PhpParser\Node\Expr\Array_;
 
 /**
  * @extends ServiceEntityRepository<Article>
@@ -40,38 +39,26 @@ class ArticleRepository extends ServiceEntityRepository
         }
     }
 
-    public function getNextArticle($currentId): Array
+    public function getNextArticle($currentId): array
     {
         return $this->createQueryBuilder('a')
             ->where('a.id > :id')
             ->setParameter('id', $currentId)
-            ->setMaxResults(1)
             ->getQuery()
             ->getResult();
     }
 
-    public function getPrevArticle($currentId): Array
+    public function getPrevArticle($currentId): array
     {
         return $this->createQueryBuilder('b')
             ->where('b.id < :id')
             ->setParameter('id', $currentId)
+            ->orderBy('b.id','DESC')
             ->getQuery()
             ->getResult();
+
     }
 
+//https://blog.lesjeudis.com/pagination-sql
 
-
-//    /**
-//     * @return Article[] Returns an array of Article objects
-//     */
-
-//    public function findOneBySomeField($value): ?Article
-//    {
-//        return $this->createQueryBuilder('a')
-//            ->andWhere('a.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
 }
