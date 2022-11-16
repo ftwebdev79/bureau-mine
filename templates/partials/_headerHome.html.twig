@@ -6,8 +6,10 @@ d'édition et de motion design avec singularité, cohérence et précision.</p>
 </div>
 
 <div id="navbar">
-    <img src="{{ asset('build/images/LOGO_BUREAU_MINE.png') }}" class="logo-header" alt="Logo-Bureau-Mine">
-    <a href="javascript:void(0)"><a href="{{ path('app_contact') }}">Contact</a></a>
-    <a href="javascript:void(0)"><a href="{{ path('app_info') }}">Info</a></a>
-    <a href="javascript:void(0)"><a href="{{ path('app_home') }}">Projets</a></a>
+    <a href="{{ path('app_home') }}" class="logo-nav"> <img src="{{ asset('build/images/LOGO_BUREAU_MINE.png') }}" alt="" class="logo-header"></a>
+   <div class="nav-links">
+    <a href="javascript:void(0)"><a class="real-link" href="{{ path('app_contact') }}">Contact</a></a>
+    <a href="javascript:void(0)"><a class="real-link" href="{{ path('app_info') }}">Info</a></a>
+    <a href="javascript:void(0)"><a  class="real-link" href="{{ path('app_home') }}">Projets</a></a>
+   </div>
 </div>
