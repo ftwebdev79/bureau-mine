@@ -20,17 +20,12 @@ class HomeController extends AbstractController
         $categories = $categoryRepository->findAll();
 
 
-        if ($request->isXmlHttpRequest()) {
-            return new JsonResponse([
-                'content' => $this->renderView('home/article.html.twig', ['articles' => $articles])
-            ]);
 
-        }
 
         return $this->render('home/index.html.twig', [
             'articles' => $articles,
             'categories' => $categories,
-        ]);
+                    ]);
     }
 
 

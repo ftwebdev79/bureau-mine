@@ -2,25 +2,27 @@
 
 {% block title %}Bureau Mine{% endblock %}
 
-{% block main %}
 
+
+{% block main %}
     {% include('partials/_headerHome.html.twig') %}
-    <div class="container">
-        <div class="blocCat">
-            <div class="blocCategory">
-                <span id="filters" class="textFiltre">Filtres :
-                    {% for category in categories %}
+    <div class="container js-filter">
+        <div class="blocCat ">
+            <div class="blocCategory js-filter-category ">
+                <span class="textFiltre">Filtres :</span>
+                {% for article in articles | slice(0, 1) %}
+                    {% for category in article.categories %}
                         <a href="{{ path('app_category_detail', { 'id': category.id }) }}">{{ category.name }}</a>
                         {% if not loop.last %}|{% endif %}
                     {% endfor %}
-                </span>
+                {% endfor %}
             </div>
         </div>
 
-        <div class="container">
+        <div class="container js-filter-content">
             <div class="row"
                  data-masonry='{"percentPosition": true }'>
-                {% include 'home/article.html.twig' %}
+                    {% include 'home/article.html.twig'%}
             </div>
         </div>
     </div>

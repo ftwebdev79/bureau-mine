@@ -1,4 +1,4 @@
-<div class="col-sm-6 col-lg-4 mb-4 d-flex justify-content-center" style="position: absolute; left: 0; top: 0;">
+<div class="card-wrapper col-sm-6 col-lg-4 mb-4 d-flex justify-content-center" {#style="position: absolute; left: 0; top: 0;"#} id="article-{{ article.id }}">
     <div class="card bg-transparent border-0 rounded-0">
         <a href="{{ path('app_home_details', { 'id': article.id }) }}" class="linkCard">
             {% for attachment in article.attachments | slice(0,1) %}

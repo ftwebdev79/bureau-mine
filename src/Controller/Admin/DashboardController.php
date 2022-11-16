@@ -38,9 +38,9 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('<h2 class="mt-3 fw-bold text-white">BUREAU MINE</h2>')
-//            ->setTitle('<img src="public/build/images/LogoIntro.png" alt="test" class="img-fluid d-block mx-auto" style="max-width:100px; width:100%;">
-//                        <h2 class="mt-3 fw-bold text-white text-center">MonBlog</h2>')
+//            ->setTitle('<h2 class="mt-3 fw-bold text-white">BUREAU MINE</h2>')
+            ->setTitle('<img src="/images/attachments/LogoIntro.png" alt="test" class="img-fluid d-block mx-auto" style="max-width:100px; width:100%;">
+                        <h2 class="mt-3 fw-bold text-white text-center">MonBlog</h2>')
             ->renderContentMaximized();
     }
 
