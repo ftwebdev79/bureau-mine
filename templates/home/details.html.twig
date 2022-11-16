@@ -8,14 +8,22 @@
     <div class="positionContainerDetail">
         <div class="wrapper">
             <div class="slider-wrap">
-                <div class="swiper-container" data-controller="carousel">
+                <div class="swiper-container" data-controller="carousel"
+                     data-carousel-options-value='{
+                     "pagination": { "el": ".swiper-pagination", "dynamicBullets":"true" },
+                     "navigation": { "nextEl": ".swiper-button-next",
+                                     "prevEl": ".swiper-button-prev" }}'>
                     <div class="swiper-wrapper">
+
                         {% for attachment in article.attachments %}
-                            <div class="imgTest swiper-slide">
-                                <img class="imgDetailcover" src="{{ asset( 'images/attachments/' ~ attachment.image) }}"
+                            <div class="swiper-slide">
+                                <div class="swiper-button-prev"></div>
+                                    <img class="imgDetailcover" src="{{ asset( 'images/attachments/' ~ attachment.image) }}"
                                      alt="">
+                                <div class="swiper-button-next"></div>
                             </div>
                         {% endfor %}
+
                     </div>
                 </div>
             </div>

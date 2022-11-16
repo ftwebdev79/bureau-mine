@@ -15,14 +15,21 @@
     .slider-wrap {
       grid-area: 1 / 1 / 2 / 9;
       width: 100%;
-      height: 95vh;
+      height: 100%;
       overflow: hidden;
 
-      .imgDetailcover {
-        display: block;
+      .swiper-slide {
         width: 100%;
         height: 100%;
-        //object-fit: cover;
+
+        .swiper-button-prev, .swiper-button-next {
+          color: white;
+        }
+
+        .imgDetailcover {
+          width: 100%;
+          height: auto;
+        }
       }
     }
   }
@@ -69,15 +76,20 @@
         display: flex;
         justify-content: flex-start;
 
-        .fleche {
-          width: 10%;
-          height: auto;
-          transform: rotate(180deg);
+        a {
+          text-decoration: none;
+          color: #091825;
 
-          a p {
+          p {
             display: flex;
-            justify-content: flex-end;
-            text-decoration: none;
+            justify-content: flex-start;
+
+            .fleche {
+              width: 10%;
+              height: auto;
+              transform: rotate(180deg);
+              margin-right: 10px;
+            }
           }
         }
       }
@@ -88,14 +100,19 @@
         align-content: center;
         justify-content: flex-end;
 
-        a p {
-          display: flex;
-          justify-content: flex-end;
+        a {
           text-decoration: none;
+          color: #091825;
 
-          .fleche {
-            width: 10%;
-            height: auto;
+          p {
+            display: flex;
+            justify-content: flex-end;
+
+            .fleche {
+              width: 10%;
+              height: auto;
+              margin-left: 10px;
+            }
           }
         }
       }
@@ -118,4 +135,5 @@
 
     }
   }
+
 }
