@@ -39,26 +39,46 @@
           rgba(255, 255, 255, 0.4990371148459384) 55%,
           rgba(255, 255, 255, 1) 100%);
   z-index: 100;
+  padding-top: 1rem;
+  .logo-nav {
+    float: left;
+    margin-top: -14px;
+
+    .logo-header {
+      min-width: 100px;
+      max-width: 100px;
+      height: auto;
+      margin-top: 2vh;
+      margin-left: 2vw;
+    }
+  }
+
+  .nav-links {
+    float: right;
+    display: block;
+    text-align: center;
+    margin-right: 2%;
+
+    a {
+      position: relative;
+      text-decoration: none;
+      font-family: TwCenMTStd-Light, sans-serif;
+      font-size: 15px;
+      color: #091825;
+      margin: 6px 16px;
+      padding-bottom: 4px;
+      }
+      .real-link{
+        background: linear-gradient(to top, rgba(0,0,0.5) 1%, rgba(0,0,0.5) 1px, transparent 1px) no-repeat;
+        background-size: 0 100%;
+        transition: background-size .3s;
+    }
+    a:hover{
+      background-size: 100% 100%;
+    }
+  }
 }
 
-.logo-header {
-  min-width: 100px;
-  max-width: 100px;
-  height: auto;
-  margin-top: 2vh;
-  margin-left: 2vw;
-}
-
-#navbar a {
-  float: right;
-  display: block;
-  color: #091825;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-family: TwCenMTStd-Light, sans-serif;
-  font-size: 15px;
-}
 
 .test-header {
   min-width: 8%;
@@ -86,6 +106,11 @@
   height: 6vh;
   background: #F5F5F5;
   z-index: 100;
+
+  .logo-nav {
+    float: left;
+    margin-top: -20px;
+  }
 }
 
 #navDetail a {
