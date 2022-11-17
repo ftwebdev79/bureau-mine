@@ -18,13 +18,8 @@
                 {% endfor %}
             </div>
         </div>
-
-        <div class="container js-filter-content">
-            <div class="row"
-                 data-masonry='{"percentPosition": true }'>
-                    {% include 'home/article.html.twig'%}
-            </div>
-        </div>
+        {% include 'home/article.html.twig' %}
     </div>
+
 
 {% endblock %}
