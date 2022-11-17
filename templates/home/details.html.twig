@@ -36,7 +36,7 @@
                     <p>{{ article.title }}</p>
 
                     <p class="detailTitre"><strong>Date :</strong></p>
-                    <p>{{ article.createdAt | date("d M", "Europe/Paris") }}</p>
+                    <p>{{ article.dateProjet | date("M Y", "Europe/Paris") }}</p>
 
                     {% if article.categories|length > 1 %}
                         <p class="detailTitre"><strong>Catégories :</strong></p>
@@ -52,7 +52,7 @@
                 <h1 class="titleDetail">{{ article.title }}</h1>
 
                 <div class="textDetail">
-                    {{ article.description | nl2br }}
+                    {{ article.description|striptags|nl2br }}
                 </div>
 
                 <div class="paginationDetails">

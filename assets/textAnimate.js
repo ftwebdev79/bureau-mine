@@ -5,7 +5,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
 function animate_text()
 {
-    let delay = 30,
+    let delay = 20,
         delay_start = 0,
         contents,
         letters;

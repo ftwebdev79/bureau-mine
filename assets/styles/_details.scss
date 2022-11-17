@@ -14,21 +14,35 @@
 
     .slider-wrap {
       grid-area: 1 / 1 / 2 / 9;
-      width: 100%;
-      height: 100%;
       overflow: hidden;
 
       .swiper-slide {
-        width: 100%;
-        height: 100%;
+        display: flex;
+        align-content: center;
+        justify-content: center;
 
-        .swiper-button-prev, .swiper-button-next {
-          color: white;
+        .swiper-button-next::after, .swiper-button-prev::after {
+          display: none;
+        }
+
+        .swiper-button-prev {
+          background-image: url("./../../public/build/images/LogoMinePrev.svg");
+          background-repeat: no-repeat;
+          background-size: 100% auto;
+          background-position: center;
+        }
+
+        .swiper-button-next {
+          background-image: url("./../../public/build/images/LogoMine.svg");
+          background-repeat: no-repeat;
+          background-size: 100% auto;
+          background-position: center;
         }
 
         .imgDetailcover {
-          width: 100%;
-          height: auto;
+          width: auto;
+          min-height: 100%;
+          max-height: 100%;
         }
       }
     }
@@ -83,10 +97,11 @@
           p {
             display: flex;
             justify-content: flex-start;
+            align-items: center;
 
             .fleche {
               width: 10%;
-              height: auto;
+              height: 10%;
               transform: rotate(180deg);
               margin-right: 10px;
             }
@@ -107,10 +122,11 @@
           p {
             display: flex;
             justify-content: flex-end;
+            align-items: center;
 
             .fleche {
               width: 10%;
-              height: auto;
+              height: 10%;
               margin-left: 10px;
             }
           }

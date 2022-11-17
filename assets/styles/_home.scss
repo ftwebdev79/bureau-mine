@@ -9,25 +9,26 @@
     margin-bottom: 4rem;
   }
 
-    .blocCategory {
-      width: 50%;
-      height: auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      color: black;
-      margin-top: 10vh;
-      margin-bottom: 2vh;
-    }
-      a {
-        text-decoration: none;
-        color: #091825;
-        font-family: TwCenMTStd-Light, sans-serif;
-        font-size: 0.8em;
-      }
+  .blocCategory {
+    width: 50%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+    margin-top: 10vh;
+    margin-bottom: 2vh;
+  }
 
-      .textFiltre {
-        font-family: MonotypeBemboBookMTStd-BoldIt, serif
+  a {
+    text-decoration: none;
+    color: #091825;
+    font-family: TwCenMTStd-Light, sans-serif;
+    font-size: 0.8em;
+  }
 
-    }
+  .textFiltre {
+    font-family: MonotypeBemboBookMTStd-BoldIt, serif
+
+  }
 }

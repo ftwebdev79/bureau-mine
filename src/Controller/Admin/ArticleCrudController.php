@@ -14,6 +14,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\CollectionField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
@@ -33,13 +34,19 @@ class ArticleCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
-        yield IdField::new('id')->hideOnForm();
-        yield TextField::new('title', 'Nom');
+        yield IdField::new('id')
+            ->hideOnForm()
+            ->hideOnDetail();
+
+        yield TextField::new('title', 'Nom')
+            ->hideOnDetail();
+
         yield TextField::new('client', 'Client');
-        yield TextField::new('description', 'Description');
+        yield TextEditorField::new('description', 'Description');
+
 //        yield BooleanField::new('active');
-        yield DateTimeField::new('dateProjet', 'Date de création du projet')
-            ->setFormat('short');
+        yield DateField::new('dateProjet', 'Date de création du projet')
+            ->setFormat('dd MMMM yyyy ', 'none');
 
         yield AssociationField::new('categories', 'Catégories')
             ->setTemplatePath('admin/field/show-category.html.twig')

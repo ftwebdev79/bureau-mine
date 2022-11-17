@@ -17,10 +17,10 @@ html, body, main {
   box-sizing: border-box;
   overflow-x: hidden;
   background-color: #F2F2F2;
+  cursor: url('./../images/CursorBureauMine.svg'), auto;
 }
 
-body{
-  cursor: url('./../../public/build/images/flecheBureauMine.png'), auto;
+a{
+  cursor: url('./../images/CursorBureauMineLink.svg'), auto;
 }
-
 

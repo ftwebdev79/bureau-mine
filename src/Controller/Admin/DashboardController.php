@@ -38,23 +38,21 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-//            ->setTitle('<h2 class="mt-3 fw-bold text-white">BUREAU MINE</h2>')
-            ->setTitle('<img src="/images/attachments/LogoIntro.png" alt="test" class="img-fluid d-block mx-auto" style="max-width:100px; width:100%;">
-                        <h2 class="mt-3 fw-bold text-white text-center">MonBlog</h2>')
+            ->setTitle('<img src="/images/attachments/LogoIntro.png" alt="test" class="img-fluid d-block mx-auto" style="max-width:100px; width:100%;">')
             ->renderContentMaximized();
     }
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::section('DashBoard', 'fa fa-home');
+//        yield MenuItem::section('DashBoard', 'fa fa-home');
 
-        yield MenuItem::subMenu('Articles', 'fa-solid fa-newspaper')->setSubItems([
+        yield MenuItem::subMenu('Articles', 'fa-solid fa-folder')->setSubItems([
             MenuItem::linkToCrud('Créer article', 'fas fa-plus', Article::class)
                 ->setAction(Crud::PAGE_NEW),
             MenuItem::linkToCrud('Voir les articles', 'fas fa-eye', Article::class),
         ]);
 
-        yield MenuItem::subMenu('Catégories', 'fa-solid fa-newspaper')->setSubItems([
+        yield MenuItem::subMenu('Catégories', 'fa-solid fa-folder-tree')->setSubItems([
             MenuItem::linkToCrud('Créer catégories', 'fas fa-plus', Category::class)
                 ->setAction(Crud::PAGE_NEW),
             MenuItem::linkToCrud('Voir les catégories', 'fas fa-eye', Category::class),
