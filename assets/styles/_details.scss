@@ -16,37 +16,42 @@
       grid-area: 1 / 1 / 2 / 9;
       overflow: hidden;
 
-      .swiper-slide {
-        display: flex;
-        align-content: center;
-        justify-content: center;
+      .swiper-container {
+        height: 100%;
 
-        .swiper-button-next::after, .swiper-button-prev::after {
-          display: none;
-        }
+        .swiper-slide {
+          display: flex;
+          align-content: center;
+          justify-content: center;
 
-        .swiper-button-prev {
-          background-image: url("./../../public/build/images/LogoMinePrev.svg");
-          background-repeat: no-repeat;
-          background-size: 100% auto;
-          background-position: center;
-        }
+          .imgDetailcover {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
 
-        .swiper-button-next {
-          background-image: url("./../../public/build/images/LogoMine.svg");
-          background-repeat: no-repeat;
-          background-size: 100% auto;
-          background-position: center;
-        }
+          .swiper-button-next::after, .swiper-button-prev::after {
+            display: none;
+          }
 
-        .imgDetailcover {
-          width: auto;
-          min-height: 100%;
-          max-height: 100%;
+          .swiper-button-prev {
+            background-image: url("./../../public/build/images/LogoMinePrev.svg");
+            background-repeat: no-repeat;
+            background-size: 100% auto;
+            background-position: center;
+          }
+
+          .swiper-button-next {
+            background-image: url("./../../public/build/images/LogoMine.svg");
+            background-repeat: no-repeat;
+            background-size: 100% auto;
+            background-position: center;
+          }
         }
       }
     }
   }
+
 
   .article {
     grid-area: 1 / 9 / 2 / 13;

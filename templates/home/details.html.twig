@@ -8,11 +8,14 @@
     <div class="positionContainerDetail">
         <div class="wrapper">
             <div class="slider-wrap">
-                <div class="swiper-container" data-controller="carousel"
+                <div class="swiper-container"
+                     data-controller="carousel"
                      data-carousel-options-value='{
                      "pagination": { "el": ".swiper-pagination", "dynamicBullets":"true" },
                      "navigation": { "nextEl": ".swiper-button-next",
-                                     "prevEl": ".swiper-button-prev" }}'>
+                                     "prevEl": ".swiper-button-prev" }
+{#                      "autoHeight": { "true" },#}
+                      }'>
                     <div class="swiper-wrapper">
 
                         {% for attachment in article.attachments %}

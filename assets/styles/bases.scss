@@ -17,10 +17,10 @@ html, body, main {
   box-sizing: border-box;
   overflow-x: hidden;
   background-color: #F2F2F2;
-  cursor: url('./../images/CursorBureauMine.svg'), auto;
+  cursor: url('./../images/CursorBureauMine.svg'), pointer;
 }
 
-a{
-  cursor: url('./../images/CursorBureauMineLink.svg'), auto;
+a {
+  cursor: url('./../images/CursorBureauMineLink.svg'), pointer;
 }
 
