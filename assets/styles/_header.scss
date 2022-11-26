@@ -33,62 +33,72 @@
 
 //MENU DE NAVIGATION
 #navbar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   width: 100vw;
   height: 6vh;
   background: linear-gradient(0deg, rgba(255, 255, 255, 0) 5%,
           rgba(255, 255, 255, 0.4990371148459384) 55%,
           rgba(255, 255, 255, 1) 100%);
   z-index: 100;
-  padding-top: 1rem;
 
-  .logo-nav {
-    float: left;
-    margin-top: -14px;
+  .blocLogo {
+    width: 50%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
 
-    .logo-header {
-      min-width: 100px;
-      max-width: 100px;
-      height: auto;
-      margin-top: 2vh;
-      margin-left: 2vw;
+    .logo-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .logo-header {
+        min-width: 100px;
+        max-width: 100px;
+        height: auto;
+        margin-left: 3vw;
+      }
     }
   }
 
-  .nav-links {
-    float: right;
-    display: block;
-    text-align: center;
-    margin-right: 2%;
 
-    a {
-      position: relative;
-      text-decoration: none;
-      font-family: TwCenMTStd-Light, sans-serif;
-      font-size: 15px;
-      color: #091825;
-      margin: 6px 16px;
-      padding-bottom: 4px;
+  .blocNav {
+    width: 50%;
+    height: auto;
+    display: flex;
+    justify-content: flex-end;
+
+    .nav-links {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 3vw;
+
+      a {
+        position: relative;
+        text-decoration: none;
+        font-family: TwCenMTStd-Light, sans-serif;
+        font-size: 15px;
+        color: #091825;
+        margin: 6px 16px;
+        padding-bottom: 4px;
       }
 
-      .real-link{
-        background: linear-gradient(to top, rgba(0,0,0.5) 1%, rgba(0,0,0.5) 1px, transparent 1px) no-repeat;
+      .real-link {
+        background: linear-gradient(to top, rgba(0, 0, 0.5) 1%, rgba(0, 0, 0.5) 1px, transparent 1px) no-repeat;
         background-size: 0 100%;
         transition: background-size .3s;
-    }
+      }
 
-    a:hover{
-      background-size: 100% 100%;
+      a:hover {
+        background-size: 100% 100%;
+      }
     }
   }
 }
-
-
-//.test-header {
-//  min-width: 8%;
-//  height: auto;
-//  margin-left: 2vw;
-//  margin-top: 2vh;
-//}
 
 #navbar a:hover {
   color: black;

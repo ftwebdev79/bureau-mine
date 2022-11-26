@@ -1,9 +1,18 @@
 <div id="navbar">
-    <a class="logo-nav" href="{{ path('app_home') }}"> <img src="{{ asset('build/images/LOGO_BUREAU_MINE.png') }}" alt="" class="logo-header"></a>
-  <div class="nav-links">
-      <a href="javascript:void(0)"><a class="real-link" href="{{ path('app_contact') }}">Contact</a></a>
-      <a href="javascript:void(0)"><a class="real-link" href="{{ path('app_info') }}">Info</a></a>
-      <a href="javascript:void(0)"><a class="real-link" href="{{ path('app_home') }}">Projets</a></a>
-  </div>
+
+    <div class="blocLogo">
+        <a class="logo-nav" href="{{ path('app_home') }}">
+            <img src="{{ asset('build/images/LOGO_BUREAU_MINE.png') }}" alt="" class="logo-header">
+        </a>
+    </div>
+
+
+    <div class="blocNav">
+        <div class="nav-links">
+            <a href="javascript:void(0)"><a class="real-link" href="{{ path('app_contact') }}">Contact</a></a>
+            <a href="javascript:void(0)"><a class="real-link" href="{{ path('app_info') }}">Info</a></a>
+            <a href="javascript:void(0)"><a class="real-link" href="{{ path('app_home') }}">Projets</a></a>
+        </div>
+    </div>
 
 </div>
