@@ -1,30 +1,49 @@
-.card-body {
-  text-decoration: none;
+.card {
+  opacity: 1;
+  animation: 0.4s linear;
+  animation-name: slidein;
+  //animation-fill-mode: forwards;
+
+  .linkCard {
+    font-family: TwCenMTStd-Light, serif;
+    font-size: 0.9em;
+    text-decoration: none;
+    color: #091824;
+
+    .card-body {
+      text-decoration: none;
+
+      .card-title {
+        font-family: BemboBookMTStd-Bold, serif;
+        font-size: 1.3em;
+        font-weight: bolder;
+        color: #091825;
+        margin-top: 5px;
+        margin-bottom: 0;
+
+        .categoryCard {
+          margin-top: 0;
+
+          .card-title {
+            font-family: BemboBookMTStd-Bold, serif;
+            font-size: 1.2em;
+            text-decoration: none;
+            color: #091824;
+          }
+        }
+      }
+    }
+  }
 }
 
-.card-title {
-  font-family: BemboBookMTStd-Bold, serif;
-  font-size: 1.3em;
-  font-weight: bolder;
-  color: #091825;
-  margin-top: 5px;
-  margin-bottom: 0;
-}
+@keyframes slidein {
+  0% {
+    margin-left: 0;
+    opacity: 0;
+  }
 
-.categoryCard {
-  margin-top: 0;
-}
-
-.titreCard{
-  font-family: BemboBookMTStd-Bold, serif;
-  font-size: 1.2em;
-  text-decoration: none;
-  color: #091824;
-}
-
-.linkCard {
-  font-family: TwCenMTStd-Light, serif;
-  font-size: 0.9em;
-  text-decoration: none;
-  color: #091824;
+  100% {
+    margin-left: 0;
+    opacity: 1;
+  }
 }
